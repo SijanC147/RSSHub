@@ -27,7 +27,7 @@ async function handler(ctx) {
     const $ = load(response);
     const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit'), 10) : 20;
 
-    const list: DataItem[] = $('.contentFadeUp a')
+    const list: DataItem[] = $('a[class*="PublicationList"][class*="listItem"]')
         .toArray()
         .slice(0, limit)
         .map((el) => {
